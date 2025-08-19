@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function fetchUserDetails(username) {
         const url = `https://leetcode-stats-api.herokuapp.com/${username}`;
         try {
-            searchButton.textContent = "wait...";
+            searchButton.textContent = "Searching ree beta....";
             searchButton.disabled = true;
 
             const response = await fetch(url);
@@ -94,3 +94,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
