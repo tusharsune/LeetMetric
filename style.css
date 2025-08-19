@@ -1,73 +1,102 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
-    font-family:cursive;
+    box-sizing: border-box;
+    font-family: cursive;
 }
 
-body{
+body {
     color: black;
-    background-color: #fe7843;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Nested animated background using layered radial gradients */
+    background: radial-gradient(circle at 20% 30%, #fe7843 15%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #f57022 15%, transparent 40%);
+    background-size: 200% 200%;
+    animation: bgAnimation 10s ease-in-out infinite alternate;
 }
 
-.container{
-    padding: 2rem;
-    background: rgba(245, 108, 58, 0.159);
+@keyframes bgAnimation {
+    0% {
+        background-position: 0% 0%, 100% 100%;
+    }
+    100% {
+        background-position: 100% 100%, 0% 0%;
+    }
+}
+
+.container {
+    padding: 2rem 3rem;
+    background: rgba(245, 108, 58, 0.20);
     width: 50%;
     max-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
-    border-radius:15px;
-    box-shadow: 2px 2px 4px;
-    transition: .6s;
+    gap: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.6s ease, transform 0.3s ease;
 }
 
-/* .container:hover{
-    box-shadow: inset 2px 2px 4px;
-    border-radius: none;
-} */
+.container:hover {
+    box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
 
-h1{
+h1 {
     font-family: serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #2b0700;
+    text-align: center;
 }
 
-.user-container{
+.user-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     justify-content: start;
 }
 
-.user-input-container{
+.user-input-container {
     display: flex;
     justify-content: space-between;
 }
 
-#user-input{
+#user-input {
     width: 80%;
-    padding: 0.2rem;
-    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    border: 2px solid #b64926;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-#search-btn{
-    padding: 0.2rem;
-    border-radius: 5px;
+#user-input:focus {
+    outline: none;
+    border-color: #753a09;
+    box-shadow: 0 0 8px rgba(247, 132, 68, 0.6);
 }
 
-/* #search-btn::after{
-    border-radius: 10px;
-} */
+#search-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #753a09;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+#search-btn:hover {
+    background-color: #b64926;
+}
 
-.circle{
-    background: conic-gradient(black var(--progress-degree, 0%),rgb(52, 46, 46)  0%);
+.circle {
+    background: conic-gradient(black var(--progress-degree, 0%), rgb(52, 46, 46) 0%);
     color: white;
     width: 120px;
     height: 120px;
@@ -80,19 +109,18 @@ h1{
     font-size: 16px;
     font-weight: 700;
     flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-.circle span{
+.circle span {
     position: relative;
     z-index: 2;
 }
 
-
-.progress{
+.progress {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
 }
-
